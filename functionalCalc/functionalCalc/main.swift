@@ -13,8 +13,11 @@ import Foundation
 //////////////////////
 //Build a Calculator//
 //////////////////////
-func add(a : Int, b : Int) -> Int {
-    return a + b
+func add(a : Int?, b : Int?) -> Int? {
+    if a == nil || b == nil {
+        return nil
+    }
+    return a! + b!
 }
 
 func sub(a : Int, b : Int) -> Int {
@@ -162,7 +165,7 @@ print("sub 5 - 3 = \(sub(5,3))\n")
 print("mul 6 * 7 = \(mul(6,7))\n")
 print("div 12 / 3 = \(div(12,3)!)\n")
 print("div 12 / 0 = \(div(12,0))\n")
-print("mathOp add 5 + 10 = \(mathOp(5,10,add)!)\n")
+print("mathOp add 5 + 10 = \(mathOp(5,10,add))\n")
 print("\n")
 
 //Array Tests
@@ -178,6 +181,7 @@ print("\n")
 print("Point Tests")
 print("Tuple add (1, 2) + (3, 4) = \(pointAdd((1,2),(3,4)))\n")
 print("Tuple sub (1, 2) - (3, 4) = \(pointSub((1,2),(3,4)))\n")
+//print("Tuple add (1, 2, 3) + (3, 4) = \(pointAdd(1,2,3,4),(3,4))\n")
 let point1 = ["x":1,"y":2]
 let point2 = ["x":3,"y":4]
 let doublePoint = ["x":1.5,"y":2.0]
