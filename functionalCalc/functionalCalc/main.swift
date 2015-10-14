@@ -75,11 +75,144 @@ func arrayOp(nums : [Int], op : ([Int]) -> Int) -> Int {
 //Points//
 //////////
 
-//TODO Dictionaries
-func pointAdd(a : (x : Int, y : Int), b : (x : Int, y : Int)) -> (Int, Int) {
-    return (a.x + b.x, a.y + b.y)
+//Tuples
+func pointAdd(a : (Int, Int), b : (Int, Int)) -> (Int, Int) {
+    return (a.0 + b.0, a.1 + b.1)
 }
 
-func pointSub(a : (x : Int, y : Int), b : (x : Int, y : Int)) -> (Int, Int) {
-    return (a.x - b.x, a.y - b.y)
+func pointSub(a : (Int, Int), b : (Int, Int)) -> (Int, Int) {
+    return (a.0 - b.0, a.1 - b.1)
 }
+
+//Dictionaries
+func pointAdd(var a : [String : Int], var b : [String : Int]) -> (Int, Int) {
+    if a["x"] == nil {
+        a["x"] = 0
+    }
+    if a["y"] == nil {
+        a["y"] = 0
+    }
+    if b["x"] == nil {
+        b["x"] = 0
+    }
+    if b["y"] == nil {
+        b["y"] = 0
+    }
+    
+    return (a["x"]! + b["x"]!, a["y"]! + b["y"]!)
+}
+
+func pointSub(var a : [String : Int], var b : [String : Int]) -> (Int, Int) {
+    if a["x"] == nil {
+        a["x"] = 0
+    }
+    if a["y"] == nil {
+        a["y"] = 0
+    }
+    if b["x"] == nil {
+        b["x"] = 0
+    }
+    if b["y"] == nil {
+        b["y"] = 0
+    }
+    
+    return (a["x"]! - b["x"]!, a["y"]! - b["y"]!)
+}
+
+func pointAdd(var a : [String : Double], var b : [String : Double]) -> (Double, Double) {
+    if a["x"] == nil {
+        a["x"] = 0.0
+    }
+    if a["y"] == nil {
+        a["y"] = 0.0
+    }
+    if b["x"] == nil {
+        b["x"] = 0.0
+    }
+    if b["y"] == nil {
+        b["y"] = 0.0
+    }
+    
+    return (a["x"]! + b["x"]!, a["y"]! + b["y"]!)
+}
+
+func pointSub(var a : [String : Double], var b : [String : Double]) -> (Double, Double) {
+    if a["x"] == nil {
+        a["x"] = 0.0
+    }
+    if a["y"] == nil {
+        a["y"] = 0.0
+    }
+    if b["x"] == nil {
+        b["x"] = 0.0
+    }
+    if b["y"] == nil {
+        b["y"] = 0.0
+    }
+    
+    return (a["x"]! - b["x"]!, a["y"]! - b["y"]!)
+}
+
+
+
+//Calculator Tests
+print("Calculator Tests\n")
+print("add 3 + 5 = \(add(3,5))\n")
+print("sub 5 - 3 = \(sub(5,3))\n")
+print("mul 6 * 7 = \(mul(6,7))\n")
+print("div 12 / 3 = \(div(12,3)!)\n")
+print("div 12 / 0 = \(div(12,0))\n")
+print("mathOp add 5 + 10 = \(mathOp(5,10,add)!)\n")
+print("\n")
+
+//Array Tests
+print("Array Tests\n")
+print("add 3 + 4 + 5 + 6 = \(arrayAdd([3,4,5,6]))\n")
+print("count 3, 4, 5, 6 = \(arrayCount([3,4,5,6]))\n")
+print("avg 1, 5, 2, 4 = \(arrayAvg([1,5,2,4]))\n")
+print("arrayOp avg 1, 5, 2, 4 = \(arrayOp([1,5,2,4], arrayAvg))\n")
+print("\n")
+
+//Point Tests
+
+print("Point Tests")
+print("Tuple add (1, 2) + (3, 4) = \(pointAdd((1,2),(3,4)))\n")
+print("Tuple sub (1, 2) - (3, 4) = \(pointSub((1,2),(3,4)))\n")
+let point1 = ["x":1,"y":2]
+let point2 = ["x":3,"y":4]
+let doublePoint = ["x":1.5,"y":2.0]
+let missingParamPoint = ["y":2]
+print("Dictionary add (1, 2) + (3, 4) = \(pointAdd(point1, point2))\n")
+print("Dictionary sub (1, 2) + (3, 4) = \(pointSub(point1, point2))\n")
+print("Dictionary add missing x (x, 2) + (3, 4) = \(pointAdd(missingParamPoint, point2))\n")
+print("Dictionary add (1.5, 2) + (3, 4) = \(pointAdd(doublePoint, doublePoint))\n")
+print("\n")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
