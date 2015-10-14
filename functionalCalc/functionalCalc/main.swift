@@ -100,8 +100,6 @@ func arrayOp(nums : [Int]?, op : ([Int]?) -> Int?) -> Int? {
     return op(nums)
 }
 
-
-
 //////////
 //Points//
 //////////
@@ -185,6 +183,8 @@ func pointSub(var a : [String : Double], var b : [String : Double]) -> (Double, 
 }
 
 
+
+//when nil is taken as a parameter or an attempt is made to divide by 0 nil is returned.
 
 //Calculator Tests
 print("Calculator Tests:\n")
